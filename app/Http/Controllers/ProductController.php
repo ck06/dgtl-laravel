@@ -97,7 +97,7 @@ class ProductController extends Controller
     {
         return $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'brand' => ['required', 'exists:brand,id'],
+            'brand_id' => ['required', 'exists:brands,id'],
             'description' => ['required', 'string'],
             'price' => ['required', 'numeric', 'min:0'],
         ]);
