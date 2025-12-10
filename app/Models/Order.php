@@ -13,7 +13,7 @@ class Order extends Model
 
     protected $fillable = [
         'ordered_at',
-        'ordered_by',
+        'ordered_by_id',
         'order_number',
         'status',
     ];

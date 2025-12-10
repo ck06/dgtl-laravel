@@ -10,8 +10,8 @@ class Customer extends Model
     protected $fillable = [
         'name',
         'email',
-        'address',
-        'billing_address',
+        'address_id',
+        'billing_address_id',
     ];
 
     public function address(): HasOne

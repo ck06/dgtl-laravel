@@ -10,16 +10,16 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('customer', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('name');
             $table->string('email')->unique();
-            $table->unsignedBigInteger('address');
-            $table->unsignedBigInteger('billing_address');
+            $table->unsignedBigInteger('address_id');
+            $table->unsignedBigInteger('billing_address_id');
 
-            $table->foreign('address')->references('id')->on('address');
-            $table->foreign('billing_address')->references('id')->on('address');
+            $table->foreign('address_id')->references('id')->on('addresses');
+            $table->foreign('billing_address_id')->references('id')->on('addresses');
         });
     }
 

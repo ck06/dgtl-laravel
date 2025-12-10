@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order_line', function (Blueprint $table) {
+        Schema::create('order_lines', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
 
-            $table->unsignedBigInteger('order');
-            $table->unsignedBigInteger('product');
+            $table->unsignedBigInteger('order_id');
+            $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('price')->comment('price in cents at time of placing the order');
             $table->integer('amount');
 
-            $table->foreign('order')->references('id')->on('order');
-            $table->foreign('product')->references('id')->on('product');
+            $table->foreign('order_id')->references('id')->on('orders');
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 

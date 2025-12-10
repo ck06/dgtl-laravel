@@ -3,19 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Product extends Model
 {
     protected $fillable = [
-        'brand',
+        'brand_id',
         'name',
         'description',
         'price',
     ];
 
-    public function brand(): HasOne
+    public function brand(): BelongsTo
     {
-        return $this->hasOne(Brand::class);
+        return $this->belongsTo(Brand::class, 'brand_id');
     }
 }

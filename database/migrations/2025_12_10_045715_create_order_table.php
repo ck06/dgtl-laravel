@@ -12,11 +12,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->dateTime('ordered_at')->comment('date of purchase order')->nullable();
-            $table->unsignedBigInteger('ordered_by');
+            $table->unsignedBigInteger('ordered_by_id');
 
             // this pattern will likely change if the webshop pops off, so a string allows the most flexibility.
             // this is just for display purposes; the autoincrement id will be used for internal relations.
@@ -27,7 +27,7 @@ return new class extends Migration
                 Order::STATUS_DONE,
             ])->default(Order::STATUS_OPEN);
 
-            $table->foreign('ordered_by')->references('id')->on('customer');
+            $table->foreign('ordered_by_id')->references('id')->on('customers');
         });
     }
 

@@ -11,11 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('brand', function (Blueprint $table) {
+        Schema::create('brands', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('name');
         });
+
+        // due to time constraints, add some brands in the database for the product pages.
+        // (note: would normally be in a Seeder instead)
+        DB::table('brands')->insert([
+            ['name' => 'Huismerk'],
+            ['name' => 'A-merk'],
+            ['name' => 'B-merk'],
+        ]);
     }
 
     /**
