@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('country');
             $table->string('city');
             $table->string('street');
-            $table->string('houseNumber');
-            $table->string('houseNumberSuffix')->nullable();
+            $table->string('house_number');
+            $table->string('house_number_suffix')->nullable();
         });
     }
 

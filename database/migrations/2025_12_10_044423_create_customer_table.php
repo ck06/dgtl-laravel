@@ -16,10 +16,10 @@ return new class extends Migration {
             $table->string('name');
             $table->string('email')->unique();
             $table->unsignedBigInteger('address');
-            $table->unsignedBigInteger('billingAddress');
+            $table->unsignedBigInteger('billing_address');
 
             $table->foreign('address')->references('id')->on('address');
-            $table->foreign('billingAddress')->references('id')->on('address');
+            $table->foreign('billing_address')->references('id')->on('address');
         });
     }
 

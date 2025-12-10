@@ -17,8 +17,7 @@ return new class extends Migration
 
             $table->unsignedBigInteger('order');
             $table->unsignedBigInteger('product');
-            $table->unsignedbiginteger('totalPrice')->comment('total price in cents at time of placing the order');
-            $table->unsignedBigInteger('individualPrice')->comment('price in cents at time of placing the order');
+            $table->unsignedBigInteger('price')->comment('price in cents at time of placing the order');
             $table->integer('amount');
 
             $table->foreign('order')->references('id')->on('order');
