@@ -5,10 +5,11 @@
 @endsection
 
 @section('content')
-    <h1>All Products</h1>
+    <div class="flex justify-between">
+        <div class="font-semibold">All Products</div>
 
-    <a href="{{ route('products.create') }}">New product</a>
-
+        <a href="{{ route('products.create') }}" class="text-blue underline">New product</a>
+    </div>
     @if(count($products) > 0)
         <table>
             <thead>
